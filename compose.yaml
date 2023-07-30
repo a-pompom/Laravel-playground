@@ -1,0 +1,12 @@
+services:
+  laravel:
+    build:
+      context: ./container/php
+      dockerfile: ./container/php/Dockerfile
+    ports:
+      - target: 8000
+        published: "38000"
+    volumes:
+      - type: bind
+        source: ./src
+        target: /home/app
