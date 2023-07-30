@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Fortune\FortuneController;
 use App\Http\Controllers\Hello\HelloController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/hello/', [HelloController::class, 'hello']);
+
+Route::prefix('/fortune')->group(function () {
+    Route::get('/', [FortuneController::class, 'index'])->name('fortune.index');
+    Route::get('/result/', [FortuneController::class, 'result'])->name('fortune.result');
+});
